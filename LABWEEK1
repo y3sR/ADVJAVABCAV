@@ -1,0 +1,194 @@
+1. Create a class Product with properties(itemNo,name,price,quantity) and methods(Constructor,setters and getters and toString method). Create 5 objects using array of objects concepts and print the object details using toString method.
+
+
+class Product1 {
+    private int item_no;
+    private String name;
+    private int price;
+    private int quantity;
+
+    public Product1(int i, String n, int p, int q) {
+        this.item_no = i;
+        this.name = n;
+        this.price = p;
+        this.quantity = q;
+    }
+
+    public int getItem_no() {
+        return item_no;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setItem_no(int item_no) {
+        this.item_no = item_no;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String toString() {
+        return "Product[Item_no:" + item_no + " name:" + name + " price:" + price + " quantity:" + quantity + "]";
+    }
+}
+    public class Hello {
+        public static void main(String[] args) {
+            Product1[] P_arr = new Product1[5];
+            P_arr[0] = new Product1(1, "TV", 50000, 2);
+            P_arr[1] = new Product1(2, "Gaming PC", 220000, 1);
+            P_arr[2] = new Product1(3, "Handset", 120000, 2);
+            P_arr[3] = new Product1(4, "AC", 36000, 4);
+            P_arr[4] = new Product1(5, "Speakers", 20000, 3);
+            for(Product1 p: P_arr){
+                System.out.println(p.toString());
+
+            }
+
+        }
+    }
+
+2. Create a class Customer with properties(custId,name,address,phoneNo) and methods(Constructor,setters and getters and toString method). Create 5 objects using array of objects concepts and print the object details using toString method.
+class Customer{
+    private int Cust_id;
+    private String name;
+    private String Address;
+    private int phone_no;
+    public Customer(int i,String n,String a,int p){
+        this.Cust_id=i;
+        this.name=n;
+        this.Address=a;
+        this.phone_no=p;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setCust_id(int cust_id) {
+        Cust_id = cust_id;
+    }
+    public void setAddress(String address) {
+        Address = address;
+    }
+    public void setPhone_no(int phone_no) {
+        this.phone_no = phone_no;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public int getPhone_no() {
+        return phone_no;
+    }
+    public int getCust_id() {
+        return Cust_id;
+    }
+    public String getAddress() {
+        return Address;
+    }
+
+
+    public String toString(){
+        return "Customer[id:"+Cust_id+" name:"+name+" address:"+Address+" phone_no:"+phone_no+"]";
+    }
+}
+public class LabClass2 {
+    public static void main(String[]args){
+        Customer[] C = new Customer[5];
+        C[0] = new Customer(1, "yassir", "nagaon", 12472825);
+        C[1] = new Customer(2, "rohit PC", "jorhat", 246224);
+        C[2] = new Customer(3, "probal", "Teok", 246626);
+        C[3] = new Customer(4, "gaurav", "Dhansiri", 24626);
+        C[4] = new Customer(5, "robiul", "Bongaigaon", 246262);
+        for(Customer c: C){
+            System.out.println(c.toString());
+
+        }
+    }
+}
+3. Create a Parent class Account with properties(accNo,name, address, phoneNo, dob, balance) and methods(Constructor,setters and getters).
+Create a Derived class SavingAccount with methods(deposit() and withdraw() ). Create a main method to create the object and implement the Deposit and Withdraw method.
+class Account {
+    protected int accNo;
+    protected String name;
+    protected String address;
+    protected String phoneNo;
+    protected String dob;
+    protected double balance;
+
+    public Account(int accNo, String name, String address, String phoneNo, String dob, double balance) {
+        this.accNo = accNo;
+        this.name = name;
+        this.address = address;
+        this.phoneNo = phoneNo;
+        this.dob = dob;
+        this.balance = balance;
+    }
+
+
+    public void setAccNo(int accNo) { this.accNo = accNo; }
+    public void setName(String name) { this.name = name; }
+    public void setAddress(String address) { this.address = address; }
+    public void setPhoneNo(String phoneNo) { this.phoneNo = phoneNo; }
+    public void setDob(String dob) { this.dob = dob; }
+    public void setBalance(double balance) { this.balance = balance; }
+
+    public int getAccNo() { return accNo; }
+    public String getName() { return name; }
+    public String getAddress() { return address; }
+    public String getPhoneNo() { return phoneNo; }
+    public String getDob() { return dob; }
+    public double getBalance() { return balance; }
+}
+
+class SavingAccount extends Account {
+
+    public SavingAccount(int accNo, String name, String address, String phoneNo, String dob, double balance) {
+        super(accNo, name, address, phoneNo, dob, balance);
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: " + amount + ", New Balance: " + balance);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount + ", Remaining Balance: " + balance);
+        } else {
+            System.out.println("Insufficient balance or invalid amount.");
+        }
+    }
+}
+public class Labclass3 {
+    public static void main(String[] args) {
+        SavingAccount sa = new SavingAccount(1001, "Yassir", "Nagaon", "9999999999", "01-01-2000", 5000);
+        sa.deposit(2000);
+        sa.withdraw(1500);
+
+    }
+}
+
+
