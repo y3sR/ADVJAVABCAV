@@ -1,0 +1,144 @@
+
+// GRADE CALCULATOR
+import java.util.Scanner;
+
+public class GradeCalculator {
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter a number:");
+        int marks= sc.nextInt();
+        if (marks>=90){
+            System.out.println("Grade: A+");
+        } else if (marks>=80 ) {
+            System.out.println("Grade: A");
+        }
+        else if (marks>=75 ) {
+            System.out.println("Grade: B+");
+        }
+        else if (marks>=70 ) {
+            System.out.println("Grade: B");
+        }
+        else if ( marks==69) {
+            System.out.println("legendary grade");
+
+        }
+        else if (marks>=50 ) {
+            System.out.println("Grade: C");
+        }
+        else if (marks>=30 ) {
+            System.out.println("Grade: D");
+        } else{
+            System.out.println("you are failed");
+        }
+
+    }
+}
+
+// PATTERN 
+public class Pattern {
+    public static void main(String []args){
+        int n=5;
+        for (int i=1;i<=n;i++){
+            for (int j=1;j<=i;j++){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+// GRADE CALCULATOR
+class Student{
+    private String name;
+    private int roll_no;
+    public void setDetails(String n,int r){
+        this.name=n;
+        this.roll_no=r;
+    }
+    public void display(){
+        System.out.println("Name"+name+"Roll_no"+roll_no);
+    }
+}
+public class StudentManagement {
+    public static void main(String[]args){
+        Student s1=new Student();
+        s1.setDetails("Yassir",61);
+        s1.display();
+
+    }
+}
+
+//BANK ACCOUNT MANAGEMENT SYSTEM
+
+class BankAccount {
+    String accountHolder;
+    double balance;
+
+    BankAccount(String name, double bal) {
+        accountHolder = name;
+        balance = bal;
+    }
+
+    void deposit(double amount) {
+        balance += amount;
+    }
+
+    void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient funds!");
+        }
+    }
+
+    void display() {
+        System.out.println("Account: " + accountHolder + ", Balance: " + balance);
+    }
+}
+
+public class BankDemo {
+    public static void main(String[] args) {
+        BankAccount acc = new BankAccount("Amit", 1000);
+        acc.deposit(500);
+        acc.withdraw(200);
+        acc.display();
+    }
+}
+
+
+// COMPLEX NUMBER OPERATIONS 
+class ComplexNumber {
+    int real, imag;
+
+    // Default constructor
+    ComplexNumber() {
+        real = 0;
+        imag = 0;
+    }
+
+    // Parameterized constructor
+    ComplexNumber(int r, int i) {
+        real = r;
+        imag = i;
+    }
+
+    ComplexNumber add(ComplexNumber c) {
+        return new ComplexNumber(this.real + c.real, this.imag + c.imag);
+    }
+
+    void display() {
+        System.out.println(real + " + " + imag + "i");
+    }
+}
+
+public class ComplexDemo {
+    public static void main(String[] args) {
+        ComplexNumber c1 = new ComplexNumber(2, 3);
+        ComplexNumber c2 = new ComplexNumber(4, 5);
+        ComplexNumber sum = c1.add(c2);
+        sum.display();
+    }
+}
+
+
+
